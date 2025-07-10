@@ -1,0 +1,19 @@
+@import "../../public/fonts/Mabry-Pro/stylesheet.css";
+@import "../../public/fonts/HalvarBreit-Lt//style.css";
+@import "../../public/fonts/Good-Vibes-Pro/stylesheet.css";
+@import "../../public/fonts/Druk-Cyr/stylesheet.css";
+@import "tailwindcss";
+
+:root {
+    --background: #000000;
+    --foreground: #fff;
+    --font-halvar: "Halvar Breitschrift", sans-serif;
+    --font-mabry: "Mabry Pro", sans-serif;
+    --font-goodVibes: "Good Vibes Pro", sans-serif;
+    --font-drukCyr: "Druk Cyr", sans-serif;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+}
