@@ -1,41 +1,69 @@
+"use client";
 import { BackgroundEffects } from "@/component/background_effects/BackgroundEffects";
 import { BlurredGlowProps } from "@/component/blur_effect/BlurEffect";
 import { DecorativeVector } from "@/component/decorative-vector/DecorativeVector";
-import { EventFeatures } from "@/component/EventFeature/EventFeatures";
 import HeadSection from "@/component/head_section/HeadSection";
-import Container from "@/Container";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-    const light: BlurredGlowProps = {
-        width: 584,
-        height: 584,
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize(); // вызвать сразу
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const lightm: BlurredGlowProps = {
         color: "#FFB41E",
-        blur: 285.95,
         right: -369, // Less negative positioning
     };
     const light2: BlurredGlowProps = {
-        width: 571,
-        height: 571,
         color: "#C8101D",
-        blur: 285.95,
         left: -369, // Less negative positioning
     };
+
+    const WhyShouldBeSection = dynamic(
+        () => import("@/component/why_should_be_section/WhyShouldBeSection"),
+    );
+    const SponsorsSection = dynamic(
+        () => import("@/component/sponsors_section/SponsorsSection"),
+    );
+
+    const InfoPartners = dynamic(
+        () => import("@/component/Info_partners/InfoPartners"),
+    );
+
+    const FooterSection = dynamic(
+        () => import("@/component/footer_section/FooterSection"),
+    );
+
     return (
         <div className="overflow-hidden">
             <HeadSection />
-            <div className="z-10">
-                <BackgroundEffects effects={light} />
-            </div>
+            <BackgroundEffects effects={lightm} />
             <DecorativeVector>
-                <Container className="mx-auto">
-                    <div className="z-50">
-                        <EventFeatures />
-                    </div>
-                </Container>
+                <WhyShouldBeSection />
+                <div className="z-10">
+                    <BackgroundEffects effects={light2} />
+                </div>
+
+                <SponsorsSection />
+                <div className="z-10">
+                    <BackgroundEffects effects={lightm} />
+                </div>
+
+                <InfoPartners />
                 <div className="z-10">
                     <BackgroundEffects effects={light2} />
                 </div>
             </DecorativeVector>
+            <FooterSection />
         </div>
     );
 }

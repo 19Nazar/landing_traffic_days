@@ -20,20 +20,18 @@ export const EventTitle: React.FC<EventTitleProps> = ({
                     fontSize: "clamp(32px, 5vw, 60px)",
                     fontWeight: 700,
                     lineHeight: "60px",
-                    maxWidth: "1199px",
                     margin: "0 auto",
                 }}
             >
                 {title}
             </h2>
             <h2
-                className={`md:hidden w-full text-center leading-[90%] uppercase ${className || ""}`}
+                className={`md:hidden w-full text-center  leading-[90%] uppercase ${className || ""}`}
                 style={{
                     color: "#FFF",
                     fontFamily: "var(--font-drukCyr)",
                     fontSize: "32px",
                     fontWeight: 700,
-                    maxWidth: "1199px",
                     margin: "0 auto",
                 }}
             >

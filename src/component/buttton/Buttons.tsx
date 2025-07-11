@@ -1,21 +1,23 @@
 "use client";
 
-import { memo } from "react";
 import { twMerge } from "tailwind-merge";
 
 function ButtonTicket({
     className,
     style,
-    onClick,
 }: {
     className?: string;
     style?: React.CSSProperties;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }) {
+    const handleClick = () => {
+        console.log("Button clicked!");
+        window.open("https://google.com", "_blank");
+    };
+
     return (
         <button
             className={twMerge(
-                "relative cursor-pointer flex-shrink-0 hover:opacity-50 transition duration-300",
+                "relative cursor-pointer flex-shrink-0 hover:opacity-70 transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400",
                 className,
             )}
             style={{
@@ -23,7 +25,8 @@ function ButtonTicket({
                 width: "260px",
                 height: "60px",
             }}
-            onClick={onClick}
+            onClick={handleClick}
+            type="button"
         >
             {/* Decorative SVG Border */}
             <svg
@@ -32,7 +35,7 @@ function ButtonTicket({
                 viewBox="0 0 260 60"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full "
             >
                 <g filter="url(#filter0_ii_ticket)">
                     <path
@@ -113,7 +116,7 @@ function ButtonTicket({
 
             {/* Button Text */}
             <div
-                className="absolute inset-0 flex items-center justify-center z-10 uppercase tracking-[-0.4px] leading-[120%]"
+                className="absolute inset-0 flex items-center justify-center uppercase tracking-[-0.4px] leading-[120%] "
                 style={{
                     fontSize: "clamp(16px, 2vw, 20px)",
                     fontFamily:
@@ -128,4 +131,4 @@ function ButtonTicket({
     );
 }
 
-export default memo(ButtonTicket);
+export default ButtonTicket;

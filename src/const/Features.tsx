@@ -1,4 +1,6 @@
-export const Features = [
+import { EventFeatureCardProps } from "@/component/EventFeature/EventFeatureCard";
+
+export const Features: EventFeatureCardProps[] = [
     {
         image: "/image/section_01/01.jpg",
         title: "Тусовка з топами",
@@ -18,5 +20,52 @@ export const Features = [
         image: "/image/section_01/04.jpg",
         title: "Компанія моделей та естетика всюди навколо",
         description: "— атмосфера, яку ти не забудеш!",
+    },
+] as const;
+
+export const Sponsors: EventFeatureCardProps[] = [
+    {
+        image: "/image/section_02/01.png",
+        title: "Arbitrage Up",
+        description:
+            "Академія арбітражу №1 в Україні. Навчили та випустили більше 5000 студентів",
+    },
+    {
+        image: "/image/section_02/02.png",
+        title: "One Media",
+        description:
+            "Affiliate-холдинг із командою 250+ людей, що працює у вертикалях Nutra та iGaming",
+    },
+    {
+        image: "/image/section_02/03.png",
+        title: "One Partners",
+        description:
+            "Партнерська CPA-програма в iGaming та Betting-вертикалях, що налічує понад 800 WW-оферів",
+    },
+    {
+        image: "/image/section_02/04.png",
+        title: "Sempro",
+        description: "text",
+    },
+] as const;
+
+export const InfoPartnersCard: EventFeatureCardProps[] = [
+    {
+        image: "/image/section_03/01.png",
+    },
+    {
+        image: "/image/section_03/02.png",
+    },
+    {
+        image: "/image/section_03/03.png",
+    },
+    {
+        image: "/image/section_03/04.png",
+    },
+    {
+        image: "/image/section_03/05.png",
+    },
+    {
+        image: "/image/section_03/06.png",
     },
 ] as const;

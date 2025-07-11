@@ -4,12 +4,10 @@ import ButtonTicket from "@/component/buttton/Buttons";
 
 export interface TrafficDaysEventProps {
     className?: string;
-    onTicketClick?: () => void;
 }
 
 export const TrafficDaysEvent: React.FC<TrafficDaysEventProps> = ({
     className,
-    onTicketClick,
 }) => {
     return (
         <div className={`w-full max-w-[685px] mx-auto top- ${className || ""}`}>
@@ -92,7 +90,7 @@ export const TrafficDaysEvent: React.FC<TrafficDaysEventProps> = ({
                 </div>
 
                 {/* Description */}
-                <div className="w-full px-4 mb-8 md:mb-6 flex flex-col items-center gap-3 ">
+                <div className="w-full px-4 mb-8 md:mb-6 flex flex-col z-10 items-center gap-3 ">
                     <p
                         className="text-center leading-[120%] tracking-[-0.32px] opacity-90"
                         style={{

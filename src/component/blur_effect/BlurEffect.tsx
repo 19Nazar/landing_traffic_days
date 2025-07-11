@@ -1,32 +1,41 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export type BlurredGlowProps = {
-    width: number;
-    height: number;
     left?: number;
     right?: number;
     top?: number;
     color: string;
-    blur: number;
     className?: string;
 };
 
 export const BlurredGlow = ({
-    width,
-    height,
     left,
     right,
     top,
     color = "#C8101D",
-    blur = 285.95,
     className = "",
 }: BlurredGlowProps) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize(); // вызвать сразу
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const glowStyle = {
-        width: `${width}px`,
-        height: `${height}px`,
+        width: `584px`,
+        height: `584px`,
         left: `${left}px`,
         right: `${right}px`,
         top: `${top}px`,
         backgroundColor: color,
-        filter: `blur(${blur}px)`,
+        filter: `blur(${isMobile ? 198 : 285.95}px)`,
         borderRadius: "50%",
     };
 
