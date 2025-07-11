@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 export type BlurredGlowProps = {
     left?: number;
@@ -16,18 +17,6 @@ export const BlurredGlow = ({
     color = "#C8101D",
     className = "",
 }: BlurredGlowProps) => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        handleResize(); // вызвать сразу
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
     const glowStyle = {
         width: `584px`,
         height: `584px`,
@@ -35,13 +24,12 @@ export const BlurredGlow = ({
         right: `${right}px`,
         top: `${top}px`,
         backgroundColor: color,
-        filter: `blur(${isMobile ? 198 : 285.95}px)`,
         borderRadius: "50%",
     };
 
     return (
         <div
-            className={className}
+            className={twMerge("blur-[198px] md:blur-[286px]", className)}
             style={{
                 position: "absolute",
                 mixBlendMode: "plus-lighter",

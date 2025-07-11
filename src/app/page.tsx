@@ -4,7 +4,11 @@ import { BlurredGlowProps } from "@/component/blur_effect/BlurEffect";
 import { DecorativeVector } from "@/component/decorative-vector/DecorativeVector";
 import HeadSection from "@/component/head_section/HeadSection";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+
+const SectionSkeleton = ({ height = "h-40" }) => (
+    <div className={`animate-pulse bg-gray-100 ${height} rounded mb-4`} />
+);
 
 export default function Home() {
     const [isMobile, setIsMobile] = useState(false);
@@ -44,26 +48,38 @@ export default function Home() {
     );
 
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden z-5">
             <HeadSection />
             <BackgroundEffects effects={lightm} />
-            <DecorativeVector>
-                <WhyShouldBeSection />
-                <div className="z-10">
-                    <BackgroundEffects effects={light2} />
-                </div>
 
-                <SponsorsSection />
-                <div className="z-10">
-                    <BackgroundEffects effects={lightm} />
-                </div>
-
-                <InfoPartners />
-                <div className="z-10">
-                    <BackgroundEffects effects={light2} />
-                </div>
-            </DecorativeVector>
-            <FooterSection />
+            <Suspense fallback={<SectionSkeleton height="h-32" />}>
+                <DecorativeVector>
+                    <Suspense fallback={<SectionSkeleton height="h-32" />}>
+                        <WhyShouldBeSection />
+                    </Suspense>
+                    <div className="z-10">
+                        <BackgroundEffects effects={light2} />
+                    </div>
+                    <Suspense fallback={<SectionSkeleton height="h-32" />}>
+                        <SponsorsSection />
+                    </Suspense>
+                    <div className="z-10">
+                        <BackgroundEffects effects={lightm} />
+                    </div>
+                    <Suspense fallback={<SectionSkeleton height="h-32" />}>
+                        <InfoPartners />
+                    </Suspense>
+                </DecorativeVector>
+            </Suspense>
+            <div className="z-10">
+                <BackgroundEffects effects={lightm} />
+            </div>
+            <div className="z-10">
+                <BackgroundEffects effects={light2} />
+            </div>
+            <Suspense fallback={<SectionSkeleton height="h-32" />}>
+                <FooterSection />
+            </Suspense>
         </div>
     );
 }

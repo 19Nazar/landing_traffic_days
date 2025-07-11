@@ -11,7 +11,9 @@ function ButtonTicket({
 }) {
     const handleClick = () => {
         console.log("Button clicked!");
-        window.open("https://google.com", "_blank");
+        window.location.assign(
+            "https://secure.wayforpay.com/payment/s738df481d5a6",
+        );
     };
 
     return (
