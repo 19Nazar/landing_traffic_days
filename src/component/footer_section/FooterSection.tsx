@@ -3,28 +3,41 @@ import Image from "next/image";
 import FooterMain from "./FooterMain";
 import FooterContactForPartner from "./FooterContactForPartner";
 import FooterFooter from "./FooterFooter";
+import {
+    backgroundEffectPresets,
+    BackgroundEffects,
+} from "../background_effects/BackgroundEffects";
 
 const FooterSection: React.FC = ({}) => {
     return (
         <section
             id="footerSection"
-            className="w-full flex-col items-center md:mt-10 -z-10"
+            className="w-full flex-col items-center md:mt-20 -z-10 bg-[#080706]"
         >
-            <div className="w-full h-full relative p-0 overflow-x-hidden">
-                <div className="absolute inset-0 h-full max-h-[1282px] min-h-[708px] object-top overflow-hidden">
+            <div className="w-full h-full relative p-0 overflow-hidden">
+                {/* Переливание от предыдущей секции */}
+                <div className="absolute inset-0 h-[50vh] bg-gradient-to-b from-transparent to-[#080706] z-0" />
+
+                {/* Изображение поверх */}
+                <div className="absolute inset-0 min-h-[708px] object-top overflow-hidden z-0">
                     <Image
                         src="/image/footer/footer_main.png"
                         alt="main_head_img"
                         width={1920}
-                        height={800}
-                        className="w-full h-full object-cover -z-10"
+                        height={1080}
+                        className="w-full h-full object-cover"
+                        priority
                     />
                 </div>
 
-                {/* Контент поверх изображения */}
-                <div className="relative z-10 w-full h-auto flex flex-col mx-auto gap-70 pb-8">
+                {/* Плавный уход в черный цвет */}
+                <div className="absolute bottom-0 inset-x-0 h-[50vh] bg-gradient-to-b from-transparent to-black z-0" />
+
+                {/* Контент поверх */}
+                <div className="relative z-10 w-full h-auto flex flex-col mx-auto gap-16 pb-8">
+                    <div className="z-10"></div>
                     <FooterMain />
-                    <div className="flex flex-col gap-10 md:gap-30">
+                    <div className="flex flex-col gap-10 md:gap-16">
                         <div className="w-full flex justify-center">
                             <FooterContactForPartner />
                         </div>

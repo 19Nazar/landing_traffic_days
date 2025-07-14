@@ -125,7 +125,7 @@ const FooterMain: React.FC = ({}) => {
                                 </svg>
                             </div>
                             <MabryText className="font-normal text-[21px] -tracking-[2%]">
-                                7 серпня о 16:00
+                                7 серпня о 17:00
                             </MabryText>
                         </div>
                         <div className=" flex items-center gap-3">

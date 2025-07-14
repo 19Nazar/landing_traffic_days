@@ -6,7 +6,7 @@ import { TrafficDaysEvent } from "../traffic_days_event/TrafficDaysEvent";
 
 const HeadSection = () => {
     return (
-        <div className="w-full " id="HeadSection">
+        <div className="w-full relative" id="HeadSection">
             <div className="w-full relative">
                 <Image
                     src="/image/header/head_mobile.png"
@@ -16,7 +16,6 @@ const HeadSection = () => {
                     priority
                     className="w-full h-full min-h-[320px] object-cover object-top  md:hidden"
                 />
-
                 <Image
                     src="/image/header/head.png"
                     alt="main_head_img"
@@ -25,11 +24,19 @@ const HeadSection = () => {
                     priority
                     className="w-full h-full min-h-[600px] object-cover object-top  max-md:hidden"
                 />
-
                 {/* Контент поверх изображения */}
-                <div className="absolute inset-0 flex flex-col justify-between max-w-[1200px] w-full mx-auto text-white pt-2">
-                    <Header />
-                    <TrafficDaysEvent />
+                <div className="absolute inset-0 max-w-[1200px] w-full mx-auto text-white">
+                    {/* Header с отступом сверху */}
+                    <div className="pt-2 md:pt-4">
+                        <Header />
+                    </div>
+                    
+                    {/* TrafficDaysEvent в верхней части нижней половины */}
+                    <div className="absolute inset-0 flex items-center justify-center" style={{ top: '50%' }}>
+                        <div className="flex items-start justify-center h-full pt-8">
+                            <TrafficDaysEvent />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

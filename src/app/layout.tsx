@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 
+const title = "Traffic Days офлайн-зустрічі про трафік";
+const description =
+    "Офлайн-зустріч про трафік, арбітраж і нові можливості. Для новачків, профі та тих, хто хоче бути в темі. Виступи спікерів, нетворкінг, кейси практиків.";
+const image = "https://www.trafficdays.net/logo.png";
+const url = "https://www.trafficdays.net";
+
 const halvar = localFont({
     src: "../../public/fonts/HalvarBreit-Lt/HalvarBreit-Lt.woff2",
     variable: "--font-halvar",
@@ -91,6 +97,27 @@ export const metadata: Metadata = {
     icons: {
         icon: "/logo.png",
     },
+    openGraph: {
+        title: title,
+        description: description,
+        url: url,
+        siteName: "ArbitrageUp",
+        images: [
+            {
+                url: image,
+                width: 1800,
+                height: 1600,
+                alt: "ArbitrageUp Preview",
+            },
+        ],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: title,
+        description: description,
+        images: [image],
+    },
 };
 
 export default function RootLayout({
@@ -101,7 +128,7 @@ export default function RootLayout({
     return (
         <html lang="uk">
             <body
-                className={`${halvar.variable} ${mabry.variable} ${goodVibes.variable} ${drukCyr.variable} antialiased`}
+                className={`${halvar.variable} ${mabry.variable} ${goodVibes.variable} ${drukCyr.variable} antialiased max-md:bg-[#080706]`}
             >
                 {children}
             </body>

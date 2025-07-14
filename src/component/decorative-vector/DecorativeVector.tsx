@@ -7,7 +7,7 @@ export type DecorativeVectorProps = {
 };
 
 export const DecorativeVector = memo(
-    ({ children, opacity = 0.04, className = "" }: DecorativeVectorProps) => {
+    ({ children, opacity = 0.03, className = "" }: DecorativeVectorProps) => {
         const gridStyles = {
             mobile: {
                 backgroundSize: "25% 25%, 25% 25%, 100% 100%",

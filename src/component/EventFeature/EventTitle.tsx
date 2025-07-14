@@ -17,7 +17,7 @@ export const EventTitle: React.FC<EventTitleProps> = ({
                     color: "#FFF",
                     fontFamily:
                         "Halvar Breitschrift, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "clamp(32px, 5vw, 60px)",
+                    fontSize: "clamp(50px, 5vw, 60px)",
                     fontWeight: 700,
                     lineHeight: "60px",
                     margin: "0 auto",
@@ -30,7 +30,7 @@ export const EventTitle: React.FC<EventTitleProps> = ({
                 style={{
                     color: "#FFF",
                     fontFamily: "var(--font-drukCyr)",
-                    fontSize: "32px",
+                    fontSize: "50px",
                     fontWeight: 700,
                     margin: "0 auto",
                 }}

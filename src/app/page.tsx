@@ -34,7 +34,7 @@ export default function Home() {
             <BackgroundEffects effects={backgroundEffectPresets.yellowGlow} />
 
             <Suspense fallback={<SectionSkeleton height="h-32" />}>
-                <DecorativeVector>
+                <DecorativeVector className="absolute max-md:-top-20">
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <WhyShouldBeSection />
                     </Suspense>
@@ -46,7 +46,7 @@ export default function Home() {
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <SponsorsSection />
                     </Suspense>
-                    <div className="z-10">
+                    <div className="md:hidden z-10">
                         <BackgroundEffects
                             effects={backgroundEffectPresets.yellowGlow}
                         />
@@ -54,18 +54,21 @@ export default function Home() {
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <InfoPartners />
                     </Suspense>
+
+                    <div className="z-10">
+                        <BackgroundEffects
+                            effects={backgroundEffectPresets.redGlow}
+                        />
+                    </div>
+                    <div className=" z-10">
+                        <BackgroundEffects
+                            effects={backgroundEffectPresets.yellowGlow}
+                        />
+                    </div>
+                    <Suspense fallback={<SectionSkeleton height="h-32" />}>
+                        <FooterSection />
+                    </Suspense>
                 </DecorativeVector>
-            </Suspense>
-            <div className="z-10">
-                <BackgroundEffects
-                    effects={backgroundEffectPresets.yellowGlow}
-                />
-            </div>
-            <div className="z-10">
-                <BackgroundEffects effects={backgroundEffectPresets.redGlow} />
-            </div>
-            <Suspense fallback={<SectionSkeleton height="h-32" />}>
-                <FooterSection />
             </Suspense>
         </div>
     );
