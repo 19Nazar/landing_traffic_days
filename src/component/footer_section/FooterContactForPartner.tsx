@@ -32,16 +32,15 @@ const FooterContactForPartner: React.FC<FooterContactForPartnerProps> = ({
 
     return (
         <div className={`w-full max-w-[1029px] mx-auto ${className || ""}`}>
-            {/* Container with relative positioning for absolute elements */}
-            <div className="relative max-lg:hidden w-[1029px] h-[258px] mx-auto">
+            <div className="relative flex flex-col gap-8 max-lg:hidden w-[1029px] h-[258px] mx-auto">
                 {/* Title Section */}
-                <div className="absolute left-0 top-0 w-[1029px]">
+                <div className="w-[1029px]">
                     <PartnershipTitle title={title} subtitle={subtitle} />
                 </div>
 
                 {/* Contact Cards */}
-                <div className="absolute left-[104px] top-[123px] w-[820px] h-[135px]">
-                    <div className="flex gap-[20px]">
+                <div className="w-[820px] h-[135px] flex justify-items-center mx-auto">
+                    <div className="flex justify-items-center gap-[20px]">
                         {contacts.map((contact, index) => (
                             <ContactCard
                                 key={index}

@@ -1,6 +1,8 @@
 "use client";
-import { BackgroundEffects } from "@/component/background_effects/BackgroundEffects";
-import { BlurredGlowProps } from "@/component/blur_effect/BlurEffect";
+import {
+    backgroundEffectPresets,
+    BackgroundEffects,
+} from "@/component/background_effects/BackgroundEffects";
 import { DecorativeVector } from "@/component/decorative-vector/DecorativeVector";
 import HeadSection from "@/component/head_section/HeadSection";
 import dynamic from "next/dynamic";
@@ -11,27 +13,6 @@ const SectionSkeleton = ({ height = "h-40" }) => (
 );
 
 export default function Home() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        handleResize(); // вызвать сразу
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    const lightm: BlurredGlowProps = {
-        color: "#FFB41E",
-        right: -369, // Less negative positioning
-    };
-    const light2: BlurredGlowProps = {
-        color: "#C8101D",
-        left: -369, // Less negative positioning
-    };
-
     const WhyShouldBeSection = dynamic(
         () => import("@/component/why_should_be_section/WhyShouldBeSection"),
     );
@@ -50,7 +31,7 @@ export default function Home() {
     return (
         <div className="overflow-hidden z-5">
             <HeadSection />
-            <BackgroundEffects effects={lightm} />
+            <BackgroundEffects effects={backgroundEffectPresets.yellowGlow} />
 
             <Suspense fallback={<SectionSkeleton height="h-32" />}>
                 <DecorativeVector>
@@ -58,13 +39,17 @@ export default function Home() {
                         <WhyShouldBeSection />
                     </Suspense>
                     <div className="z-10">
-                        <BackgroundEffects effects={light2} />
+                        <BackgroundEffects
+                            effects={backgroundEffectPresets.redGlow}
+                        />
                     </div>
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <SponsorsSection />
                     </Suspense>
                     <div className="z-10">
-                        <BackgroundEffects effects={lightm} />
+                        <BackgroundEffects
+                            effects={backgroundEffectPresets.yellowGlow}
+                        />
                     </div>
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <InfoPartners />
@@ -72,10 +57,12 @@ export default function Home() {
                 </DecorativeVector>
             </Suspense>
             <div className="z-10">
-                <BackgroundEffects effects={lightm} />
+                <BackgroundEffects
+                    effects={backgroundEffectPresets.yellowGlow}
+                />
             </div>
             <div className="z-10">
-                <BackgroundEffects effects={light2} />
+                <BackgroundEffects effects={backgroundEffectPresets.redGlow} />
             </div>
             <Suspense fallback={<SectionSkeleton height="h-32" />}>
                 <FooterSection />

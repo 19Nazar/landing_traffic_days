@@ -22,22 +22,10 @@ export const BackgroundEffects: React.FC<BackgroundEffectsProps> = ({
 export const backgroundEffectPresets = {
     redGlow: {
         color: "#C8101D",
-        size: 594,
-        blur: 285.95,
-        blendMode: "plus-lighter" as const,
-        left: -394, // Your original positioning
-        opacity: 0.5,
-    },
-    purpleGlow: {
-        color: "#4600DF",
-        size: 400,
-        blur: 200,
-        blendMode: "plus-lighter" as const,
+        left: -369,
     },
     yellowGlow: {
-        color: "#FFE605",
-        size: 300,
-        blur: 150,
-        blendMode: "overlay" as const,
+        color: "#FFB41E",
+        right: -369,
     },
-};
+} as const;

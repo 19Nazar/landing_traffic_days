@@ -1,14 +1,21 @@
 "use client";
 
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
-function ButtonTicket({
-    className,
-    style,
-}: {
+interface ButtonTicketProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    children?: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
-}) {
+}
+
+function ButtonTicket({
+    onClick,
+    children = "Купити квиток",
+    className,
+    style,
+}: ButtonTicketProps) {
     const handleClick = () => {
         console.log("Button clicked!");
         window.location.assign(
@@ -17,18 +24,46 @@ function ButtonTicket({
     };
 
     return (
-        <button
+        <motion.button
             className={twMerge(
-                "relative cursor-pointer flex-shrink-0 hover:opacity-70 transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400",
+                "relative cursor-pointer flex-shrink-0 transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400",
                 className,
             )}
             style={{
                 ...style,
                 width: "260px",
                 height: "60px",
+                filter: "drop-shadow(0 0 25px rgba(255, 215, 26, 0.4))",
             }}
-            onClick={handleClick}
+            onClick={onClick ?? handleClick}
             type="button"
+            whileHover={{
+                filter: "drop-shadow(0 0 45px rgba(255, 215, 26, 0.8))",
+                scale: 1.12,
+            }}
+            whileTap={{
+                scale: 0.98,
+                filter: "drop-shadow(0 0 15px rgba(255, 215, 26, 0.4))",
+            }}
+            animate={{
+                scale: 1,
+                filter: [
+                    "drop-shadow(0 0 25px rgba(255, 215, 26, 0.4))",
+                    "drop-shadow(0 0 30px rgba(255, 215, 26, 0.5))",
+                    "drop-shadow(0 0 25px rgba(255, 215, 26, 0.4))",
+                ],
+            }}
+            transition={{
+                filter: {
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                },
+                scale: {
+                    duration: 0.3,
+                    ease: "easeIn",
+                },
+            }}
         >
             {/* Decorative SVG Border */}
             <svg
@@ -118,7 +153,7 @@ function ButtonTicket({
 
             {/* Button Text */}
             <div
-                className="absolute inset-0 flex items-center justify-center uppercase tracking-[-0.4px] leading-[120%] "
+                className="absolute inset-0 flex gap-2 items-center justify-center w-full uppercase tracking-[-0.4px] text-center leading-[120%] "
                 style={{
                     fontSize: "clamp(16px, 2vw, 20px)",
                     fontFamily:
@@ -127,9 +162,9 @@ function ButtonTicket({
                     color: "#000",
                 }}
             >
-                Купити квиток
+                {children}
             </div>
-        </button>
+        </motion.button>
     );
 }
 

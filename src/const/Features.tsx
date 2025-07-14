@@ -9,43 +9,44 @@ export const Features: EventFeatureCardProps[] = [
     {
         image: "/image/section_01/02.jpg",
         title: "Кращі діджеї України",
-        description: "— насолоджуйся вайбом на повну!",
+        description: "насолоджуйся вайбом на повну!",
     },
     {
         image: "/image/section_01/03.jpg",
         title: "Бар, коктейлі, кальяни, їжа та закуски",
-        description: "— все на рівні, як ти любиш!",
+        description: "все на рівні, як ти любиш!",
     },
     {
         image: "/image/section_01/04.jpg",
         title: "Компанія моделей та естетика всюди навколо",
-        description: "— атмосфера, яку ти не забудеш!",
+        description: "атмосфера, яку ти не забудеш!",
     },
 ] as const;
 
 export const Sponsors: EventFeatureCardProps[] = [
     {
-        image: "/image/section_02/01.png",
+        image: "/image/header/01.png",
         title: "Arbitrage Up",
         description:
             "Академія арбітражу №1 в Україні. Навчили та випустили більше 5000 студентів",
     },
     {
-        image: "/image/section_02/02.png",
+        image: "/image/header/02.png",
         title: "One Media",
         description:
             "Affiliate-холдинг із командою 250+ людей, що працює у вертикалях Nutra та iGaming",
     },
     {
-        image: "/image/section_02/03.png",
+        image: "/image/header/03.png",
         title: "One Partners",
         description:
             "Партнерська CPA-програма в iGaming та Betting-вертикалях, що налічує понад 800 WW-оферів",
     },
     {
-        image: "/image/section_02/04.png",
+        image: "/image/header/04.png",
         title: "Sempro",
-        description: "text",
+        description:
+            "Засновник арбітражних івентів і головне комʼюніті. Це ядро digital marketing екосистеми, що формує тренди, прокачує спеціалістів і з’єднує лідерів digital-ринку.",
     },
 ] as const;
 

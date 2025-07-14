@@ -27,7 +27,7 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
                 <div className="flex gap-[20px] w-full flex-wrap">
                     {cards.map((feature, index) => (
                         <EventFeatureCard
-                            key={"feature_" + type + index}
+                            key={"feature_desktop" + type + index}
                             {...feature}
                             type={type}
                             imageAlt={"feature_" + type + index}
@@ -47,16 +47,13 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
 
                 <div
                     className={twMerge(
-                        "grid gap-6 mb-8",
-                        type == "info_partners"
-                            ? "grid-cols-1 lg:grid-cols-2 "
-                            : "grid-cols-1 lg:grid-cols-2",
+                        "grid gap-6 mb-8 grid-cols-1 lg:grid-cols-2",
                     )}
                 >
                     {cards.map((feature, index) => (
                         <div key={index} className="flex justify-center">
                             <EventFeatureCard
-                                key={"feature_" + type + index}
+                                key={"feature_mobile" + type + index}
                                 {...feature}
                                 type={type}
                                 imageAlt={"feature" + type + index}
@@ -67,7 +64,7 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
 
                 {type == undefined && (
                     <div className="flex justify-center">
-                        <ButtonTicket/>
+                        <ButtonTicket />
                     </div>
                 )}
             </div>

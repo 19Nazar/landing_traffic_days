@@ -10,7 +10,7 @@ export default function Container({
     return (
         <div
             className={twMerge(
-                "flex flex-col px-0 max-w-[1200px] w-full overflow-hidden",
+                "flex flex-col px-0 max-w-[1200px] w-full",
                 className,
             )}
         >
