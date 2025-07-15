@@ -14,7 +14,7 @@ const FooterMain: React.FC = ({}) => {
                         <p
                             className="text-center leading-[120%] tracking-[-0.32px] opacity-90"
                             style={{
-                                fontSize: "clamp(14px, 2vw, 16px)",
+                                fontSize: "16px",
                                 fontFamily:
                                     "Mabry Pro, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontWeight: 400,
@@ -30,12 +30,10 @@ const FooterMain: React.FC = ({}) => {
                     <div className="relative w-full mb-6 md:mb-8">
                         {/* Background Blur Effect for Title */}
                         <div
-                            className="absolute inset-0 w-full text-center uppercase leading-[90%] tracking-[-1.64px]"
+                            className="absolute inset-0 w-full text-center uppercase leading-[90%] tracking-[-1.64px] text-drukCyr md:text-halvar"
                             style={{
                                 filter: "blur(29.8px)",
-                                fontSize: "clamp(37px, 8vw, 82px)",
-                                fontFamily:
-                                    "Halvar Breitschrift, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "clamp(50px, 8vw, 82px)",
                                 fontWeight: 700,
                             }}
                         >
@@ -53,11 +51,9 @@ const FooterMain: React.FC = ({}) => {
 
                         {/* Main Title */}
                         <h1
-                            className="relative z-10 text-center uppercase leading-[90%] tracking-[-1.64px] w-full"
+                            className="relative z-10 text-center uppercase leading-[90%] tracking-[-1.64px] w-full text-drukCyr md:text-halvar"
                             style={{
-                                fontSize: "clamp(37px, 8vw, 82px)",
-                                fontFamily:
-                                    "Halvar Breitschrift, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "clamp(50px, 8vw, 82px)",
                                 fontWeight: 700,
                             }}
                         >
@@ -81,7 +77,7 @@ const FooterMain: React.FC = ({}) => {
                                 width: "279px",
                                 height: "70px",
                                 filter: "blur(14.35px)",
-                                fontSize: "clamp(37px, 6vw, 82px)",
+                                fontSize: "clamp(50px, 6vw, 82px)",
                                 fontFamily:
                                     "Good Vibes Pro, cursive, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontWeight: 400,
@@ -93,11 +89,11 @@ const FooterMain: React.FC = ({}) => {
 
                         {/* Pre-party Main Text */}
                         <h1
-                            className="absolute left-1/2 transform -translate-x-1/2 text-center leading-[90%] z-10 text-nowrap w-full top-[50px] sm:top-[80px] md:top-[110px]"
+                            className="absolute left-1/2 transform -translate-x-1/2 text-center leading-[90%] z-10 text-nowrap w-full top-[70px] sm:top-[80px] md:top-[110px]"
                             style={{
                                 width: "279px",
                                 height: "70px",
-                                fontSize: "clamp(37px, 6vw, 82px)",
+                                fontSize: "clamp(50px, 6vw, 82px)",
                                 fontFamily:
                                     "Good Vibes Pro, cursive, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontWeight: 400,

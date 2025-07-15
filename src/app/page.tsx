@@ -34,7 +34,7 @@ export default function Home() {
             <BackgroundEffects effects={backgroundEffectPresets.yellowGlow} />
 
             <Suspense fallback={<SectionSkeleton height="h-32" />}>
-                <DecorativeVector className="absolute max-md:-top-20">
+                <DecorativeVector className="-mt-10  [500px]:-mt-100 sm:-mt-100 md:mt-15 max-[1500]:mt-15 2xl:-mt-20">
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <WhyShouldBeSection />
                     </Suspense>

@@ -3,10 +3,6 @@ import Image from "next/image";
 import FooterMain from "./FooterMain";
 import FooterContactForPartner from "./FooterContactForPartner";
 import FooterFooter from "./FooterFooter";
-import {
-    backgroundEffectPresets,
-    BackgroundEffects,
-} from "../background_effects/BackgroundEffects";
 
 const FooterSection: React.FC = ({}) => {
     return (
