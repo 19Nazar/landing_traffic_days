@@ -8,7 +8,7 @@ const InfoPartners: React.FC = ({}) => {
         <Container className="mx-auto md:mt-[100px] z-50">
             <div className="z-50">
                 <EventFeatures
-                    title="Інфорпартнери Traffic Days"
+                    title="Інфопартнери Traffic Days"
                     type="info_partners"
                     cards={InfoPartnersCard}
                 />

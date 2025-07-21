@@ -24,7 +24,7 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
             {/* Container with relative positioning for absolute elements */}
             <div className="relative w-full flex flex-col items-center gap-10 mx-auto max-xl:hidden">
                 <EventTitle title={title} />
-                <div className="flex gap-[20px] w-full flex-wrap">
+                <div className="flex gap-[20px] w-full flex-wrap justify-center content-center mx-auto">
                     {cards.map((feature, index) => (
                         <EventFeatureCard
                             key={"feature_desktop" + type + index}

@@ -11,10 +11,7 @@ const FooterSection: React.FC = ({}) => {
             className="w-full flex-col items-center md:mt-20 -z-10 bg-[#080706]"
         >
             <div className="w-full h-full relative p-0 overflow-hidden">
-                {/* Переливание от предыдущей секции */}
                 <div className="absolute inset-0 h-[50vh] bg-gradient-to-b from-transparent to-[#080706] z-0" />
-
-                {/* Изображение поверх */}
                 <div className="absolute inset-0 min-h-[708px] object-top overflow-hidden z-0">
                     <Image
                         src="/image/footer/footer_main.png"
@@ -26,10 +23,8 @@ const FooterSection: React.FC = ({}) => {
                     />
                 </div>
 
-                {/* Плавный уход в черный цвет */}
                 <div className="absolute bottom-0 inset-x-0 h-[50vh] bg-gradient-to-b from-transparent to-black z-0" />
 
-                {/* Контент поверх */}
                 <div className="relative z-10 w-full h-auto flex flex-col mx-auto gap-16 pb-8">
                     <div className="z-10"></div>
                     <FooterMain />

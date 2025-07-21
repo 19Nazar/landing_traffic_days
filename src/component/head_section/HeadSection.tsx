@@ -24,14 +24,11 @@ const HeadSection = () => {
                     priority
                     className="w-full h-full min-h-[600px] object-cover object-top  max-md:hidden"
                 />
-                {/* Контент поверх изображения */}
                 <div className="absolute inset-0 max-w-[1200px] w-full mx-auto text-white">
-                    {/* Header с отступом сверху */}
                     <div className="pt-2 md:pt-4">
                         <Header />
                     </div>
                     
-                    {/* TrafficDaysEvent в верхней части нижней половины */}
                     <div className="absolute inset-0 flex items-center justify-center" style={{ top: '50%' }}>
                         <div className="flex items-start justify-center h-full pt-8">
                             <TrafficDaysEvent />

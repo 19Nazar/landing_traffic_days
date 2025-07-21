@@ -18,7 +18,6 @@ export const BackgroundEffects: React.FC<BackgroundEffectsProps> = ({
     );
 };
 
-// Preset effect configurations (keeping your original positioning)
 export const backgroundEffectPresets = {
     redGlow: {
         color: "#C8101D",

@@ -18,7 +18,7 @@ export default function HalvarText({
                 className,
             )}
             style={{
-                fontFamily: "var(--font-halvar)", // Принудительно задаем шрифт
+                fontFamily: "var(--font-halvar)",
                 ...style,
             }}
         >

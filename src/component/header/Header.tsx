@@ -27,9 +27,12 @@ function Header() {
                         </div>
                     ))}
                 </div>
-                <MabryText className="font-normal text-[16px] max-md:hidden">
+                <a
+                    href="https://www.instagram.com/traffic.days/"
+                    className="font-normal font-mabry text-[16px] max-md:hidden hover:opacity-70 transition-opacity duration-300"
+                >
                     Про подію
-                </MabryText>
+                </a>
             </Container>
         </header>
     );

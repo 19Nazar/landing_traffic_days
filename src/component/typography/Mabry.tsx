@@ -15,7 +15,7 @@ export default function MabryText({
         <p
             className={twMerge(`font-mabry`, className)}
             style={{
-                fontFamily: "var(--font-mabry)", // Принудительно задаем шрифт
+                fontFamily: "var(--font-mabry)",
                 ...style,
             }}
         >

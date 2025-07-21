@@ -177,7 +177,6 @@ const FooterFooter = ({ className = "" }: FooterFooterProps) => {
                 </div>
             </div>
 
-            {/* <ButtonTicket /> */}
             {/* Separator Line */}
             <div className="w-full h-px bg-[#3E3E3E] mb-6" />
 

@@ -4,7 +4,9 @@ import {
     BackgroundEffects,
 } from "@/component/background_effects/BackgroundEffects";
 import { DecorativeVector } from "@/component/decorative-vector/DecorativeVector";
+import Forma from "@/component/Forma/Forma";
 import HeadSection from "@/component/head_section/HeadSection";
+import Modal from "@/component/modal/modal";
 import dynamic from "next/dynamic";
 import { Suspense, useEffect, useState } from "react";
 
@@ -13,6 +15,7 @@ const SectionSkeleton = ({ height = "h-40" }) => (
 );
 
 export default function Home() {
+
     const WhyShouldBeSection = dynamic(
         () => import("@/component/why_should_be_section/WhyShouldBeSection"),
     );
@@ -34,7 +37,7 @@ export default function Home() {
             <BackgroundEffects effects={backgroundEffectPresets.yellowGlow} />
 
             <Suspense fallback={<SectionSkeleton height="h-32" />}>
-                <DecorativeVector className="-mt-10  [500px]:-mt-100 sm:-mt-100 md:mt-15 max-[1500]:mt-15 2xl:-mt-20">
+                <DecorativeVector className="-mt-15 min-[340px]:max-[358px]:-mt-20 min-[358px]:max-[415px]:-mt-30 min-[415px]:max-[517px]:-mt-50 min-[517px]:max-[639px]:-mt-80 sm:-mt-100 md:mt-15 max-[1500]:mt-15 2xl:-mt-20">
                     <Suspense fallback={<SectionSkeleton height="h-32" />}>
                         <WhyShouldBeSection />
                     </Suspense>
@@ -70,6 +73,7 @@ export default function Home() {
                     </Suspense>
                 </DecorativeVector>
             </Suspense>
+            
         </div>
     );
 }
