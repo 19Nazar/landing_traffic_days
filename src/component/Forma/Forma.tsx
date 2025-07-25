@@ -4,6 +4,7 @@ import { FormDataT, FormErrors } from "@/types";
 import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import ButtonTicket from "../buttton/Buttons";
+import submitForm from "@/service/submiit-form";
 
 export default function ApplicationForm() {
     const [formData, setFormData] = useState<FormDataT>({
@@ -48,7 +49,7 @@ export default function ApplicationForm() {
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
         const { name, value } = e.target;
-        
+
         if (name === "phone") {
             handlePhoneChange(value);
         } else {
@@ -66,7 +67,11 @@ export default function ApplicationForm() {
             formattedValue = "+380" + value;
         }
         // Если вводим не цифру в начале - добавляем +380
-        else if (formData.phone === "" && value.length > 0 && !value.startsWith("+380")) {
+        else if (
+            formData.phone === "" &&
+            value.length > 0 &&
+            !value.startsWith("+380")
+        ) {
             // Убираем все нецифровые символы из начала
             const cleanValue = value.replace(/\D/g, "");
             if (cleanValue.length > 0) {
@@ -78,17 +83,24 @@ export default function ApplicationForm() {
             formattedValue = "";
         }
         // Если пытаемся удалить часть +380, но оставляем другие символы
-        else if (value.startsWith("+38") && value.length > 3 && !value.startsWith("+380")) {
+        else if (
+            value.startsWith("+38") &&
+            value.length > 3 &&
+            !value.startsWith("+380")
+        ) {
             formattedValue = "+380" + value.slice(3);
         }
         // Если удаляем +380 но есть другие символы, оставляем только цифры после
-        else if (!value.startsWith("+380") && formData.phone.startsWith("+380")) {
+        else if (
+            !value.startsWith("+380") &&
+            formData.phone.startsWith("+380")
+        ) {
             const cleanValue = value.replace(/\D/g, "");
             formattedValue = cleanValue.length > 0 ? "+380" + cleanValue : "";
         }
 
         setFormData((prev) => ({ ...prev, phone: formattedValue }));
-        
+
         const error = validateField("phone", formattedValue);
         setErrors((prev) => ({ ...prev, phone: error }));
     };
@@ -160,21 +172,17 @@ export default function ApplicationForm() {
                 ],
             };
 
-            const response = await fetch(
-                "https://script.google.com/macros/s/AKfycbwloNI3VhuGvKX-uUqhE1NvomRHTWsswKmHwlZByS8iexM_ZbC1rG_HiX5eGdSRA55GBg/exec",
-                {
-                    method: "POST",
-                    body: JSON.stringify(userData),
-                    headers: {
-                        "Access-Control-Allow-Origin": "*",
-                    },
-                    mode: "no-cors",
-                },
-            );
+            const response = await submitForm({
+                name: formData.name,
+                tell: formData.phone,
+                telegram: formData.telegram,
+            });
 
-            if (response) {
-                handleClick();
-            }
+            console.log("response", response);
+
+            // if (response) {
+            //     handleClick();
+            // }
             setFormData({
                 name: "",
                 phone: "",

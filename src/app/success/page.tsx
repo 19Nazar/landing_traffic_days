@@ -7,8 +7,21 @@ import {
 import ButtonTicket from "@/component/buttton/Buttons";
 import MabryText from "@/component/typography/Mabry";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+declare global {
+    interface Window {
+        dataLayer: { push: (...args: any[]) => void };
+    }
+}
+
 export default function SuccessPage() {
     const router = useRouter();
+
+    useEffect(() => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "purchase" });
+    }, []);
 
     const ExternalLinkIcon = () => (
         <svg
