@@ -9,6 +9,7 @@ export interface EventFeaturesProps {
     className?: string;
     cards: EventFeatureCardProps[];
     type?: "sponsore" | "info_partners" | "other";
+    isSponsorImageOnly?: boolean;
 }
 
 export const EventFeatures: React.FC<EventFeaturesProps> = ({
@@ -16,6 +17,7 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
     className,
     cards,
     type,
+    isSponsorImageOnly,
 }) => {
     return (
         <section
@@ -23,7 +25,11 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
         >
             {/* Container with relative positioning for absolute elements */}
             <div className="relative w-full flex flex-col items-center gap-10 mx-auto max-xl:hidden">
-                <EventTitle title={title} />
+                {isSponsorImageOnly ? (
+                    <div></div>
+                ) : (
+                    <EventTitle title={title} />
+                )}
                 <div className="flex gap-[20px] w-full flex-wrap justify-center content-center mx-auto">
                     {cards.map((feature, index) => (
                         <EventFeatureCard
@@ -43,7 +49,11 @@ export const EventFeatures: React.FC<EventFeaturesProps> = ({
 
             {/* Responsive version for smaller screens */}
             <div className="flex flex-col items-center gap-5 xl:hidden px-4 py-8">
-                <EventTitle title={title} className="mb-8" />
+                {isSponsorImageOnly ? (
+                    <div></div>
+                ) : (
+                    <EventTitle title={title} className="mb-8" />
+                )}
 
                 <div
                     className={twMerge(

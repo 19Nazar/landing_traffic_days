@@ -48,6 +48,36 @@ export const Sponsors: EventFeatureCardProps[] = [
         description:
             "Засновник арбітражних івентів і головне комʼюніті. Це ядро digital marketing екосистеми, що формує тренди, прокачує спеціалістів і з’єднує лідерів digital-ринку.",
     },
+    // {
+    //     image: "/image/header/06.png",
+    //     title: "Sempro",
+    //     description:
+    //         "Засновник арбітражних івентів і головне комʼюніті. Це ядро digital marketing екосистеми, що формує тренди, прокачує спеціалістів і з’єднує лідерів digital-ринку.",
+    // },
+    // {
+    //     image: "/image/header/07.png",
+    //     title: "Sempro",
+    //     description:
+    //         "Засновник арбітражних івентів і головне комʼюніті. Це ядро digital marketing екосистеми, що формує тренди, прокачує спеціалістів і з’єднує лідерів digital-ринку.",
+    // },
+    // {
+    //     image: "/image/header/08.png",
+    //     title: "Sempro",
+    //     description:
+    //         "Засновник арбітражних івентів і головне комʼюніті. Це ядро digital marketing екосистеми, що формує тренди, прокачує спеціалістів і з’єднує лідерів digital-ринку.",
+    // },
+] as const;
+
+export const SponsorImageOnly: EventFeatureCardProps[] = [
+    {
+        image: "/image/header/06.png",
+    },
+    {
+        image: "/image/header/07.png",
+    },
+    {
+        image: "/image/header/08.png",
+    },
 ] as const;
 
 export const InfoPartnersCard: EventFeatureCardProps[] = [
@@ -55,7 +85,7 @@ export const InfoPartnersCard: EventFeatureCardProps[] = [
         image: "/image/section_03/01.png",
     },
     {
-        image: "/image/section_03/02.png",
+        image: "/image/section_03/02.svg",
     },
     {
         image: "/image/section_03/03.png",
@@ -68,5 +98,20 @@ export const InfoPartnersCard: EventFeatureCardProps[] = [
     },
     {
         image: "/image/section_03/06.png",
+    },
+    {
+        image: "/image/section_03/07.png",
+    },
+    {
+        image: "/image/section_03/08.svg",
+    },
+    {
+        image: "/image/section_03/09.png",
+    },
+    {
+        image: "/image/section_03/12.svg",
+    },
+    {
+        image: "/image/section_03/13.png",
     },
 ] as const;

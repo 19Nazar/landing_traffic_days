@@ -1,7 +1,7 @@
 import Container from "@/Container";
 import React, { memo } from "react";
 import { EventFeatures } from "../EventFeature/EventFeatures";
-import { Sponsors } from "@/const/Features";
+import { SponsorImageOnly, Sponsors } from "@/const/Features";
 
 const SponsorsSection: React.FC = ({}) => {
     return (
@@ -31,6 +31,13 @@ const SponsorsSection: React.FC = ({}) => {
                         type="sponsore"
                         cards={Sponsors}
                     />
+                    <EventFeatures
+                        isSponsorImageOnly
+                        title="спонсори Traffic Days"
+                        type="info_partners"
+                        cards={SponsorImageOnly}
+                    />
+                    <div></div>
                 </div>
             </Container>
         </div>
