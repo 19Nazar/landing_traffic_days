@@ -13,6 +13,8 @@ export default function ApplicationForm() {
         telegram: "",
     });
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const [errors, setErrors] = useState<FormErrors>({});
     const [phoneFocused, setPhoneFocused] = useState(false);
 
@@ -119,8 +121,8 @@ export default function ApplicationForm() {
         }
         return "Ваш номер телефону";
     };
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         e.preventDefault();
 
         const newErrors: FormErrors = {};
@@ -148,41 +150,16 @@ export default function ApplicationForm() {
             return;
         }
 
-        console.log("Form Data Submitted:", formData);
         try {
-            const userData = {
-                source_id: 1,
-                contact: {
-                    full_name: formData.name,
-                    phone: formData.phone,
-                },
-                custom_fields: [
-                    {
-                        uuid: "LD_1001",
-                        value: formData.telegram,
-                    },
-                    {
-                        uuid: "LD_1002",
-                        value: `Traffic Days`,
-                    },
-                    {
-                        uuid: "LD_1003",
-                        value: formData.phone,
-                    },
-                ],
-            };
-
             const response = await submitForm({
                 name: formData.name,
                 tell: formData.phone,
                 telegram: formData.telegram,
             });
 
-            console.log("response", response);
-
-            // if (response) {
-            //     handleClick();
-            // }
+            window.location.assign(
+                "https://secure.wayforpay.com/payment/s738df481d5a6",
+            );
             setFormData({
                 name: "",
                 phone: "",
@@ -191,13 +168,9 @@ export default function ApplicationForm() {
         } catch (error) {
             // error instanceof Error ? error.message : "Unkown error"
             console.error("Submission error:", error);
+        } finally {
+            setIsLoading(false);
         }
-    };
-
-    const handleClick = () => {
-        window.location.assign(
-            "https://secure.wayforpay.com/payment/s738df481d5a6",
-        );
     };
 
     return (
@@ -313,7 +286,13 @@ export default function ApplicationForm() {
                     </div>
                     <div className="mx-auto mt-10">
                         {/* Submit Button */}
-                        <ButtonTicket type="submit" onClick={() => {}} />
+                        <ButtonTicket
+                            type="submit"
+                            onClick={() => {}}
+                            children={
+                                isLoading ? "Завантаження..." : "Купити квиток"
+                            }
+                        />
                     </div>
                 </form>
             </div>

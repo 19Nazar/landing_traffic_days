@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 export interface EventFeatureCardProps {
     image: string;
     title?: string;
+    url?: string;
     description?: string;
     imageAlt?: string;
     className?: string;
@@ -20,6 +21,7 @@ export const EventFeatureCard: React.FC<EventFeatureCardProps> = ({
     imageAlt = "Event feature",
     className,
     type,
+    url,
 }) => {
     return (
         <motion.div
@@ -30,6 +32,7 @@ export const EventFeatureCard: React.FC<EventFeatureCardProps> = ({
                     : type === "info_partners"
                       ? "h-[120px] min-w-[280px]"
                       : "h-[401px] min-w-[280px]",
+                url ? "cursor-pointer" : "",
                 className,
             )}
             whileHover={{
@@ -37,6 +40,9 @@ export const EventFeatureCard: React.FC<EventFeatureCardProps> = ({
                 transition: { duration: 0.2, ease: "easeOut" },
             }}
             initial={{ scale: 1 }}
+            onClick={() => {
+                if (url) window.open(url, "_blank");
+            }}
         >
             {/* Card Background */}
             <motion.div

@@ -27,10 +27,13 @@ async function submitForm({ name, tell, telegram }: submitFormT): Promise<boolea
         }
 
         formData.set('tell', tell);
+        formData.set('tag_id', "688b3c1a6ab3f0a13c8007c4");
 
         const gclid = localStorage.getItem('gclid');
         if (gclid) {
             formData.set('gclid', gclid);
+        } else {
+            formData.append('gclid', getUTMValue('gclid'));
         }
 
         // Добавляем UTM параметры в formData
@@ -41,7 +44,7 @@ async function submitForm({ name, tell, telegram }: submitFormT): Promise<boolea
         formData.append('utm_content', getUTMValue('utm_content'));
 
         // Отправляем запрос
-        const response = await fetch('https://script.google.com/macros/s/AKfycbx_a9wvuTrhaHeBkWOmJKeAYmGShAtRMSG6Xs4bWl_kfSCv_miN-fmi0yDwiGusAC0/exec', {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbx7C1LUA-kqNpPVJ-C05maAUwOQSaRkCTSGeg6Kp1x26XiIA_WGctjbpAX5ygbU-51BGA/exec', {
             method: 'POST',
             body: formData,
         });
