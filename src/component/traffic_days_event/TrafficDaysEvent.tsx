@@ -100,7 +100,28 @@ export const TrafficDaysEvent: React.FC<TrafficDaysEventProps> = ({
                         Networking, вайб, колаби і тусовка — не прогав головну
                         ніч літа.
                     </p>
-                    <ButtonTicket />
+                    <div className="flex gap-5 max-md:flex-col w-full md:w-[530px] items-center lg:min-w-[650px] justify-between">
+                        <ButtonTicket
+                            onClick={() =>
+                                window.open(
+                                    "https://6748a61b2be428-51263590.gallery.photo/gallery/traffic-days-by-arbitrage-up/",
+                                    "_blank",
+                                )
+                            }
+                        >
+                            фотозвіт 1
+                        </ButtonTicket>
+                        <ButtonTicket
+                            onClick={() =>
+                                window.open(
+                                    "https://photos.app.goo.gl/AfpWi9codKmPFzUR7",
+                                    "_blank",
+                                )
+                            }
+                        >
+                            фотозвіт 2
+                        </ButtonTicket>
+                    </div>
                 </div>
             </div>
         </div>

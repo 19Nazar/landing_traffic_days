@@ -129,6 +129,7 @@ export default function RootLayout({
     return (
         <html lang="uk">
             <head>
+                <link rel="canonical" href="https://trafficdays.net/" />
                 {/* Google tag (gtag.js) */}
                 <Script id="gtm-script" strategy="afterInteractive">
                     {`

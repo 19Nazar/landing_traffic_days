@@ -83,7 +83,7 @@ const FooterFooter = ({ className = "" }: FooterFooterProps) => {
                         </a>
                         {/* Instagram */}
                         <a
-                            href="https://www.instagram.com/arbitrage.up/"
+                            href="https://www.instagram.com/arbitrageup.academy?igsh=Nm4zazI3cDF2bmtw"
                             target="_blank"
                             className="block w-10 h-10 lg:w-[61px] lg:h-[61px] hover:opacity-80 transition-opacity"
                         >
